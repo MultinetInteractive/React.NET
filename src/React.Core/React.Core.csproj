@@ -19,9 +19,10 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 	<IncludeSymbols>true</IncludeSymbols>
-	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<Version>5.3.0-mn7</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +32,7 @@
     <EmbeddedResource Remove="Resources\babel-legacy\node_modules\**" />
     <None Remove="node_modules\**" />
     <None Remove="Resources\babel-legacy\node_modules\**" />
-    <None Include="..\..\site\jekyll\img\logo_64.png" Pack="true" PackagePath="\"/>
+    <None Include="..\..\site\jekyll\img\logo_64.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,8 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs" />
-    <Compile Include="..\SharedAssemblyVersionInfo.cs" />
     <EmbeddedResource Include="Resources\babel-legacy.generated.min.js" />
     <EmbeddedResource Include="Resources\shims.js;Resources\react.generated.js;Resources\react.generated.min.js;Resources\babel.generated.min.js" />
   </ItemGroup>
@@ -60,6 +59,10 @@
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties" />
   </ItemGroup>
 
 </Project>
